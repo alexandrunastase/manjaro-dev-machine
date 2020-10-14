@@ -1,0 +1,45 @@
+[/]
+app-title='${appName}: ${sessionName} ${directory}'
+auto-hide-mouse=false
+copy-on-select=true
+enable-wide-handle=true
+focus-follow-mouse=false
+new-instance-mode='new-window'
+paste-advanced-default=false
+prompt-on-close=false
+quake-height-percent=35
+quake-hide-headerbar=false
+quake-specific-monitor=0
+session-name='Tilix'
+sidebar-on-right=true
+terminal-title-style='none'
+theme-variant='system'
+use-tabs=true
+warn-vte-config-issue=false
+window-save-state=true
+window-state=87168
+window-style='disable-csd-hide-toolbar'
+
+[keybindings]
+app-preferences='<Primary>comma'
+session-add-auto='<Primary>t'
+terminal-close='<Primary>w'
+
+[profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
+background-color='#002A36'
+background-transparency-percent=3
+badge-color='#AC7EA8'
+badge-color-set=false
+bold-color-set=false
+cursor-colors-set=false
+dim-transparency-percent=31
+draw-margin=92
+font='JetBrains Mono Bold 13'
+foreground-color='#839496'
+highlight-colors-set=false
+login-shell=true
+notify-silence-enabled=true
+palette=['#000000', '#CC0000', '#00AA00', '#CDCD00', '#268AD2', '#AA00AA', '#00CDCD', '#AAAAAA', '#7F7F7F', '#FF0000', '#54FF54', '#FFFF00', '#5C5CFF', '#FF54FF', '#00FFFF', '#FFFFFF']
+use-system-font=false
+use-theme-colors=false
+visible-name='Default'

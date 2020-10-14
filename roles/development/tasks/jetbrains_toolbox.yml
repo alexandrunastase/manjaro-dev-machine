@@ -1,0 +1,35 @@
+# Jetbrains toolbox 
+
+- name: Download jetbrains toolbox
+  get_url: 
+     url: https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.17.7275.tar.gz
+     dest: /tmp/jetbrains_toolbox.tar.gz
+     mode: 0550
+
+- name: Extract jetbrains toolbox
+  unarchive:
+    src: /tmp/jetbrains_toolbox.tar.gz
+    dest: /tmp
+
+- name: Extract jetbrains toolbox
+  unarchive:
+    src: /tmp/jetbrains_toolbox.tar.gz
+    dest: /tmp
+    
+- name: Copy jetbrains toolbox extracted folder to home
+  copy:
+    src: /tmp/jetbrains-toolbox-1.17.7275/jetbrains-toolbox
+    dest: /home/{{ansible_user}}/
+    owner: '{{ansible_user}}'
+    group: '{{ansible_user}}'
+    mode: 0554
+
+- name: Remove extracted folder
+  file:
+    path: /tmp/jetbrains-toolbox-1.17.7275
+    state: absent
+
+- name: Remove archive
+  file:
+    path: /tmp/jetbrains_toolbox.tar.gz
+    state: absent

@@ -1,0 +1,16 @@
+# Add pure theme
+autoload -U promptinit; promptinit
+prompt pure
+
+# Show contents of a folder after cd-ing to it
+chpwd() {
+  ls
+}
+
+{% for path_addition in zsh_path_additions %}
+  export PATH="$PATH:{{path_addition.path}}"
+{% endfor %}
+
+{% for variable in zsh_environment_variables %}
+  export {{variable.name}}="{{variable.value}}"
+{% endfor %}

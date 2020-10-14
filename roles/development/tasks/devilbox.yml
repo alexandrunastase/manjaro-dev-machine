@@ -1,0 +1,16 @@
+# Devilbox - Docker LAMP development stack
+- name: Ensure Projects folder exists
+  file:
+    name: /home/{{ansible_user}}/Projects
+    state: directory
+
+- name: Check if devilbox exists
+  stat:
+    path: "/home/{{ansible_user}}/Projects/devilbox"
+  register: devilbox
+
+- name: Clone devilbox if it does not exist
+  git:
+     repo: https://github.com/cytopia/devilbox.git
+     dest: /home/{{ansible_user}}/Projects/devilbox
+  when: devilbox.stat.exists == false

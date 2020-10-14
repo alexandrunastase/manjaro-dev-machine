@@ -1,0 +1,7 @@
+---
+
+aur_packages: []
+pacman_packages: []
+packages_to_remove: []
+
+flatpak_urls: []

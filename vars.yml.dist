@@ -1,0 +1,58 @@
+---
+
+# machine_hostname: "laptop"
+
+# git_name: John Doe
+# git_email: john.doe@email.com
+
+zsh_aliases:
+  # System
+  - alias: sc
+    command: "systemctl"
+  - alias: jc
+    command: "journalctl"
+  - alias: kc
+    command: "kubectl"
+  - alias: kns
+    command: "kubens"
+  - alias: kctx
+    command: "kubectx"
+  - alias: "n"
+    command: "nautilus"
+  - alias: "c"
+    command: "code"
+  - alias: start_lemp
+    command: "cd ~/Projects/devilbox; docker-compose up -d bind php mysql pgsql httpd; cd -;"
+  - alias: stop_lemp
+    command: "cd ~/Projects/devilbox/; docker-compose down; cd -;"
+  - alias: ls
+    command: "exa"
+
+  # Git
+  - alias: gst
+    command: "git status"
+  - alias: gd
+    command: "git diff"
+  - alias: gdc
+    command: "git diff --cached"
+  - alias: gl
+    command: "git log"
+  - alias: gct
+    command: "git commit"
+
+zsh_environment_variables:
+  - name: NPM_CONFIG_PREFIX
+    value: "~/.npm-global"
+
+pacman_packages:
+  - exa
+  - ranger
+  - lm_sensors
+  - dconf-editor
+
+aur_packages: []
+  # - visual-studio-code-bin
+
+flatpak_urls: []
+  # - https://flathub.org/repo/appstream/org.videolan.VLC.flatpakref
+  # - https://flathub.org/repo/appstream/com.getpostman.Postman.flatpakref

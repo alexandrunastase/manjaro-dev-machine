@@ -1,0 +1,30 @@
+---
+
+- name: Install zsh shell
+  package:
+    name: 
+      - zsh
+      - fzf
+    state: latest
+  become: yes
+
+- name: Install zsh pure theme
+  aur:
+    name: zsh-pure-prompt
+    use: auto
+    state: present
+
+- name: Create zshconfig file from template
+  template: 
+    src: .zshrc.j2
+    dest: "/home/{{ansible_user}}/.zshrc"
+
+- name: Create local zsh config file
+  template: 
+    src: .zsh_local_config.j2
+    dest: "/home/{{ansible_user}}/.zsh_local_config"
+
+- name: Create zsh aliases file
+  template: 
+    src: .zsh_aliases.j2
+    dest: "/home/{{ansible_user}}/.zsh_aliases"

@@ -1,0 +1,14 @@
+---
+- name: Install dotnet
+  package:
+    state: present
+    name:
+      - dotnet-sdk
+      - aspnet-runtime
+  become: true
+
+- name: Create /etc/profile.d/dotnet.sh file
+  template:
+    src: dotnet.sh
+    dest: "/etc/profile.d/dotnet.sh"
+  become: true

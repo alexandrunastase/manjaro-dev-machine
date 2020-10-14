@@ -1,0 +1,31 @@
+---
+
+- name: Install requirements
+  package: 
+     name: 
+       - git
+       - nodejs
+       - yarn
+     state: latest
+  become: yes
+
+- include_tasks: kubernetes.yml
+- include_tasks: vscode.yml
+- include_tasks: jetbrains_toolbox.yml
+- include_tasks: devilbox.yml
+
+- name: Make current user owner of global node_modules to allow installing of npm packages globally
+  file:
+    path: /home/{{ansible_user}}/.npm-global
+    state: directory
+    owner: '{{ansible_user}}'
+    group: '{{ansible_user}}'
+  become: yes
+
+# Configure git
+- name: Create or override .gitconfig file
+  template:
+     src: git.config.j2
+     dest: /home/{{ ansible_user }}/.gitconfig
+
+- include_tasks: docker.yml

@@ -1,0 +1,19 @@
+---
+
+- hosts: localhost
+
+  roles:
+    - kewlfft.aur # external role used for installing AUR packages
+
+    - os-configuration
+    - appearance
+    - development
+
+    - dotnet
+    - zsh
+    - tilix
+    - albert
+
+    - software
+  vars_files: 
+    - vars.yml

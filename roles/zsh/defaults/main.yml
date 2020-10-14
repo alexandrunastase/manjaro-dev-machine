@@ -1,0 +1,13 @@
+---
+
+zsh_environment_variables: []
+#  - name: NPM_CONFIG_PREFIX
+#    value: "~/.npm-global"
+
+zsh_aliases: []
+  # - alias: the_alias
+  #   command: "cd $CUSTOM_PATH/to/somewhere"
+
+zsh_path_additions: []
+  # - name: dotnet_tools
+  #   path: "/home/alex/.dotnet/tools"

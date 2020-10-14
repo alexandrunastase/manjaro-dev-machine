@@ -1,0 +1,6 @@
+## Aliases ##
+
+{% for item in zsh_aliases %}
+  alias {{item.alias}}="{{item.command}}"
+{% endfor %}
+

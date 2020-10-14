@@ -1,0 +1,20 @@
+# gtile
+
+- name: Install gtile extension
+  aur:
+    name: gnome-shell-extension-gtile-git
+    use: auto
+    state: present
+
+- name: Copy dconf configuration
+  template:
+    src: gtile.dconf
+    dest: "/tmp/gtile.dconf"
+
+- name: Load dconf configuration 
+  shell: 'dconf load /org/gnome/shell/extensions/gtile/ < /tmp/gtile.dconf'
+
+- name: Enable gtile
+  command: 'gnome-extensions enable gTile@vibou'
+  ignore_errors: yes #This can throw an error that says the extension is already enabled
+  become: yes

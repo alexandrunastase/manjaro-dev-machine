@@ -1,0 +1,32 @@
+---
+
+- name: Install
+  package: 
+    state: present
+    name: 
+      - albert
+
+- name: Ensure albert modules folder exists
+  file:
+    path: "/home/{{ansible_user}}/.local/share/albert/org.albert.extension.python/modules/"
+    state: directory
+    recurse: yes
+
+ # More details here: https://github.com/alexandrunastase/albert-launcher-window-switcher
+- name: Download forked version of the switcher extension
+  get_url:
+    url: https://raw.githubusercontent.com/alexandrunastase/albert-launcher-window-switcher/main/switcher.py
+    dest: "/home/{{ansible_user}}/.local/share/albert/org.albert.extension.python/modules/switcher.py"
+    owner: "{{ansible_user}}"
+    group: "{{ansible_user}}"
+
+- name: Ensure albert config folder exists
+  file:
+    path: "/home/{{ansible_user}}/.config/albert"
+    state: directory
+    recurse: yes
+
+- name: Create configuration file
+  template:
+    src: albert.conf
+    dest: "/home/{{ansible_user}}/.config/albert/albert.conf"

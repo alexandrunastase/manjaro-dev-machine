@@ -1,0 +1,16 @@
+---
+
+- name: Install jetbrains mono font family
+  package:
+    name: ttf-jetbrains-mono
+    state: present
+
+- name: Install ubuntu font family
+  package:
+    name: ttf-ubuntu-font-family
+    state: present  
+
+- name: Set default monospace font
+  dconf: 
+     key: /org/gnome/desktop/interface/monospace-font-name
+     value: "'JetBrains Mono Bold 13'"

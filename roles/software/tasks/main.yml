@@ -1,0 +1,29 @@
+---
+
+- name: Install AUR packages
+  aur:
+    name: '{{item}}'
+    use: auto
+    state: present
+  with_items: "{{ aur_packages }}"
+
+- name: Install pacman packages
+  package: 
+     name: "{{ item }}"
+     state: present
+  with_items: "{{ pacman_packages }}"
+  become: yes
+
+- name: Install flatpak packages
+  flatpak:
+    name: '{{ item }}'
+    state: present
+  with_items: "{{ flatpak_urls }}"
+  become: yes
+
+- name: Remove packages (AUR & pacmac)
+  package: 
+    name: '{{item}}'
+    state: absent
+  with_items: "{{ packages_to_remove }}"
+  become: yes

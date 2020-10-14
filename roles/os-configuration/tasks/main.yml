@@ -1,0 +1,43 @@
+---
+
+- name: Install requirements
+  package: 
+     name:
+       - gnome-tweak-tool
+     state: present
+  become: yes
+
+- include_tasks: keyboard_shortcuts.yml
+- include_tasks: system_configuration.yml
+- include_tasks: gnome-extensions/main.yml
+
+# Disable hot corners
+- name: Disable hot corners
+  dconf: 
+     key: /org/gnome/desktop/interface/enable-hot-corners
+     value: "false"
+
+# Other Gnome tweaks
+- name: Set antialiasing to subpixel
+  dconf: 
+     key: /org/gnome/settings-daemon/plugins/xsettings/antialiasing
+     value: "'rgba'"
+
+# # Enable automatic login
+# - name: Set AutomaticLoginEnable to True
+#   ini_file:
+#     path: /etc/gdm/custom.conf
+#     section: daemon
+#     option: AutomaticLoginEnable
+#     value: 'True'
+#     mode: 0644
+#   become: yes
+  
+# - name: Enable AutomaticLogin for the current user
+#   ini_file:
+#     path: /etc/gdm/custom.conf
+#     section: daemon
+#     option: AutomaticLogin
+#     value: "{{ansible_user}}"
+#     mode: 0644
+#   become: yes

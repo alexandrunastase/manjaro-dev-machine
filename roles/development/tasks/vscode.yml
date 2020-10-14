@@ -1,0 +1,8 @@
+---
+
+# There are some issues C# debugging with other packages 
+- name: Install original VS Code from AUR
+  aur:
+    use: auto
+    name:
+      - visual-studio-code-bin

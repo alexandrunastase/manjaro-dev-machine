@@ -1,0 +1,34 @@
+---
+
+- name: Set the hostname of the machine if it was set
+  hostname:
+    name: "{{ machine_hostname }}"
+  when: machine_hostname != ""
+
+- name: Limit the maximum size if the systemd log in order to not occupy much space
+  lineinfile:
+    path: /etc/systemd/journald.conf
+    regexp: '^#?SystemMaxUse='
+    line: 'SystemMaxUse=500M'
+  become: yes
+
+# Increase number of inotify watchers to prevent issues with some IDEs
+# https://confluence.jetbrains.com/display/IDEADEV/Inotify+Watches+Limit
+
+- name: Increase number of inotify watchers
+  sysctl:
+    name: fs.inotify.max_user_watches
+    value: '524288'
+    sysctl_set: yes
+    state: present
+    reload: yes
+  become: yes
+
+- name: Increase number of inotify instances (fixes issue with dotnet watch)
+  sysctl:
+    name: fs.inotify.max_user_instances
+    value: '524288'
+    sysctl_set: yes
+    state: present
+    reload: yes
+  become: yes

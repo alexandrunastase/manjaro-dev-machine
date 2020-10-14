@@ -1,0 +1,16 @@
+---
+
+- name: Install tilix
+  package:
+    state: present
+    name:
+      - tilix
+  become: true
+
+- name: Copy dconf configuration
+  template:
+    src: tilix.dconf
+    dest: "/tmp/tilix.dconf"
+
+- name: Load tilix dconf configuration
+  shell: "dconf load /com/gexperts/Tilix/ < /tmp/tilix.dconf"
