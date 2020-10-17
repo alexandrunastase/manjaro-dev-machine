@@ -1,0 +1,10 @@
+- name: Install gtk-title-bar extension
+  aur:
+    name: gnome-shell-extension-gtktitlebar-git
+    use: auto
+    state: present
+
+- name: Enable gtk title bar extension
+  command: 'gnome-extensions enable gtktitlebar@velitasali.github.io'
+  ignore_errors: yes #This can throw an error that says the extension is already enabled
+  become: yes

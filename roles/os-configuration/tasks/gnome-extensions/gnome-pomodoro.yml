@@ -1,0 +1,10 @@
+- name: Install gnome-pomodoro extension
+  aur:
+    name: gnome-shell-pomodoro
+    use: auto
+    state: present
+
+- name: Enable gnome-pomodoro
+  command: 'gnome-extensions enable pomodoro@arun.codito.in'
+  ignore_errors: yes #This can throw an error that says the extension is already enabled
+  become: yes

@@ -23,6 +23,7 @@ make run
 - Jetbrains toolbox
 - zsh
 - Albert launcher with forked switcher extension
+- The following gnome extensions: gtile, gtk-title-bar, gnome-pomodoro
 
 ## Fonts
 - Ubuntu

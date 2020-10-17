@@ -6,5 +6,16 @@
   ignore_errors: yes #This can throw an error that says the extension is already enabled
   become: yes
 
-#gtile
+- name: Ensure user extension are enabled
+  dconf:
+    key: /org/gnome/shell/disable-user-extensions
+    value: "false"
+
+#gtile : https://github.com/grocid/gtile
 - include_tasks: gtile.yml
+
+#pomodoro : https://github.com/codito/gnome-pomodoro
+- include_tasks: gnome-pomodoro.yml
+
+#gtk-title-bar : https://github.com/velitasali/GTKTitleBar
+- include_tasks: gtk-title-bar.yml
