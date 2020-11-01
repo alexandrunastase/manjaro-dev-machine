@@ -6,6 +6,8 @@
     - kewlfft.aur # external role used for installing AUR packages
 
     - os-configuration
+    - keyboard
+
     - appearance
     - development
 

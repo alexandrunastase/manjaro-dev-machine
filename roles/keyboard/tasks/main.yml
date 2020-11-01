@@ -1,0 +1,37 @@
+---
+
+    # More about the custom keyboard : https://github.com/alexandrunastase/ro-de-keyboard-layout
+    - name: Ensure backup folder exists
+      file:
+        state: directory
+        path: /tmp/rode
+
+    - name: Backup ro to /tmp
+      copy:
+          src: /usr/share/X11/xkb/symbols/ro
+          dest: /tmp/rode/ro
+
+    - name: Backup evdev.lst to /tmp
+      copy:
+          src: /usr/share/X11/xkb/rules/evdev.lst
+          dest: /tmp/rode/evdev.lst
+
+    - name: Backup evdev.xml to /tmp
+      copy:
+          src: /usr/share/X11/xkb/rules/evdev.xml
+          dest: /tmp/rode/evdev.xml
+
+    - name: Override ro
+      copy:
+          src: ro
+          dest: /usr/share/X11/xkb/symbols/ro
+
+    - name: Override evdev.lst
+      copy:
+          src: evdev.lst
+          dest: /usr/share/X11/xkb/rules/evdev.lst
+
+    - name: Override evdev.xml
+      copy:
+          src: evdev.xml
+          dest: /usr/share/X11/xkb/rules/evdev.xml
