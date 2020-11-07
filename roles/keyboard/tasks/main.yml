@@ -25,13 +25,16 @@
       copy:
           src: ro
           dest: /usr/share/X11/xkb/symbols/ro
-
+      become: true
+  
     - name: Override evdev.lst
       copy:
           src: evdev.lst
           dest: /usr/share/X11/xkb/rules/evdev.lst
-
+      become: true
+  
     - name: Override evdev.xml
       copy:
           src: evdev.xml
           dest: /usr/share/X11/xkb/rules/evdev.xml
+      become: true
