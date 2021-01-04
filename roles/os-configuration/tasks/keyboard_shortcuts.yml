@@ -96,21 +96,21 @@
 
 - name: Ensure nautilus scripts folder exists
   file:
-    path: /home/{{ansible_user}}/.local/share/nautilus/scripts
+    path: "/home/{{ansible_user_id}}/.local/share/nautilus/scripts"
     state: directory
 
 - name: Create Terminal script
   template:
     src: nautilus_terminal_script.j2
-    dest: /home/{{ansible_user}}/.local/share/nautilus/scripts/Terminal
+    dest: "/home/{{ansible_user_id}}/.local/share/nautilus/scripts/Terminal"
 
 - name: Make Terminal script executable
   file:
-    path: /home/{{ansible_user}}/.local/share/nautilus/scripts/Terminal
+    path: "/home/{{ansible_user_id}}/.local/share/nautilus/scripts/Terminal"
     mode: a+x
 
 - name: Create nautilus script-accels file
   template:
     src: script-accels.j2
-    dest: /home/{{ansible_user}}/.config/nautilus/scripts-accels
+    dest: "/home/{{ansible_user_id}}/.config/nautilus/scripts-accels"
     

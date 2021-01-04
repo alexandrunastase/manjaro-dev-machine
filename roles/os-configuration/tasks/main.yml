@@ -38,6 +38,6 @@
 #     path: /etc/gdm/custom.conf
 #     section: daemon
 #     option: AutomaticLogin
-#     value: "{{ansible_user}}"
+#     value: "{{ansible_user_id}}"
 #     mode: 0644
 #   become: yes

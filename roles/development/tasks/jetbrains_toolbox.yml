@@ -19,9 +19,9 @@
 - name: Copy jetbrains toolbox extracted folder to home
   copy:
     src: /tmp/jetbrains-toolbox-1.17.7275/jetbrains-toolbox
-    dest: /home/{{ansible_user}}/
-    owner: '{{ansible_user}}'
-    group: '{{ansible_user}}'
+    dest: /home/{{ansible_user_id}}/
+    owner: '{{ansible_user_id}}'
+    group: '{{ansible_user_id}}'
     mode: 0554
 
 - name: Remove extracted folder

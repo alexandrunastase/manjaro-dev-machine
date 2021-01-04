@@ -14,5 +14,5 @@
      url: https://raw.githubusercontent.com/do87/kash/v2.0/kash
      dest: /usr/local/bin/kash
      mode: 0550
-     owner: "{{ansible_user}}"
+     owner: "{{ansible_user_id}}"
   become: yes

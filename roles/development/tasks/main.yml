@@ -16,16 +16,16 @@
 
 - name: Make current user owner of global node_modules to allow installing of npm packages globally
   file:
-    path: /home/{{ansible_user}}/.npm-global
+    path: /home/{{ansible_user_id}}/.npm-global
     state: directory
-    owner: '{{ansible_user}}'
-    group: '{{ansible_user}}'
+    owner: '{{ansible_user_id}}'
+    group: '{{ansible_user_id}}'
   become: yes
 
 # Configure git
 - name: Create or override .gitconfig file
   template:
      src: git.config.j2
-     dest: /home/{{ ansible_user }}/.gitconfig
+     dest: /home/{{ansible_user_id}}/.gitconfig
 
 - include_tasks: docker.yml
